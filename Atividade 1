@@ -1,0 +1,52 @@
+import java.lang.Math;
+
+class PontoCartesiano {
+    private double x;
+    private double y;
+
+    public PontoCartesiano(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public double calcularDistancia(PontoCartesiano outroPonto) {
+        double deltaX = this.x - outroPonto.getX();
+        double deltaY = this.y - outroPonto.getY();
+        return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+       
+        PontoCartesiano ponto1 = new PontoCartesiano(3, 4);
+        PontoCartesiano ponto2 = new PontoCartesiano(6, 8);
+
+        ponto1.setX(5);
+        ponto1.setY(7);
+        ponto2.setX(9);
+        ponto2.setY(11);
+
+        System.out.println("Coordenadas do Ponto 1: (" + ponto1.getX() + ", " + ponto1.getY() + ")");
+        System.out.println("Coordenadas do Ponto 2: (" + ponto2.getX() + ", " + ponto2.getY() + ")");
+
+        double distancia = ponto1.calcularDistancia(ponto2);
+        System.out.println("Distância entre os pontos: " + distancia);
+    }
+}
